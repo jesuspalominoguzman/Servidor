@@ -1,0 +1,28 @@
+<datos>
+    <registro>
+        <nombre> Jhon Doe</nombre>
+        <edad>30</edad>
+        <ciudad>Nueva York</ciudad>
+    </registro> 
+    <registro>
+          <nombre>Jane Smith</nombre>
+          <edad>25</edad>
+          <ciudad>Los Ángeles</ciudad>
+    </registro>
+    <registro>
+          <nombre>David Johnson</nombre>
+          <edad>35</edad>
+          <ciudad>Chicago</ciudad>
+    </registro>
+    <registro>
+          <nombre>Michael Brown</nombre>
+          <edad>30</edad>
+          <ciudad>Houston</ciudad>
+    </registro>
+    <registro>
+          <nombre>Sara Wilson</nombre>
+          <edad>29</edad>
+          <ciudad>Miami</ciudad>
+    </registro>
+    
+</datos>

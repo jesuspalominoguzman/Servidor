@@ -1,0 +1,62 @@
+<datos>
+    <registro>
+        <ciudad>Barcelona</ciudad>
+        <entrenador>Roger Grimau</entrenador>
+        <jugadores>
+            <jugador>
+                <nombre>Rokas Jokubaitis</nombre>
+                <posicion>Base</posicion>
+                <nacionalidad>Lituania</nacionalidad>
+            </jugador>
+            
+            <jugador>
+                <nombre>Nicolás Laprovittola</nombre>
+                <posicion>Escolta</posicion>
+                <nacionalidad>Argentina</nacionalidad>
+            </jugador>
+
+            <jugador>
+                <nombre>Pere Tomás</nombre>
+                <posicion>Alero</posicion>
+                <nacionalidad>España</nacionalidad>
+            </jugador>
+
+            <jugador>
+                <nombre>Cristiano Felicio</nombre>
+                <posicion>Pivot</posicion>
+                <nacionalidad>Brasil</nacionalidad>
+            </jugador>
+        </jugadores>
+    </registro> 
+
+        <registro>
+        <ciudad>Málaga</ciudad>
+        <entrenador>Ibon Navarro</entrenador>
+        <jugadores>
+            <jugador>
+                <nombre>Alvaro Díaz</nombre>
+                <posicion>Base</posicion>
+                <nacionalidad>España</nacionalidad>
+            </jugador>
+            
+            <jugador>
+                <nombre>Tyler Kalinoski</nombre>
+                <posicion>Escolta</posicion>
+                <nacionalidad>EEUU</nacionalidad>
+            </jugador>
+
+            <jugador>
+                <nombre>Nijad Djekovic</nombre>
+                <posicion>Alero</posicion>
+                <nacionalidad>Alemán</nacionalidad>
+            </jugador>
+
+            <jugador>
+                <nombre>David Kravish</nombre>
+                <posicion>Pivot</posicion>
+                <nacionalidad>EEUU</nacionalidad>
+            </jugador>
+        </jugadores>
+    </registro>
+
+</datos>
