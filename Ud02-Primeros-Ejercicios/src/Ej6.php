@@ -12,7 +12,7 @@ $puntos = 40;
 </head>
 
 <header>
-    <h1>Ejercicio 05 - Bloque 1</h1>
+    <h1>Ejercicio 06 - Bloque 1</h1>
 </header>
 <body>
 
