@@ -9,6 +9,11 @@ $telefono  = $_GET['telefono'] ?? '';
 
 
 $nombreHtml = htmlspecialchars($nombre, ENT_QUOTES, 'UTF-8');
+$apellido1Html = htmlspecialchars($apellido1, ENT_QUOTES, 'UTF-8');
+$apellido2Html = htmlspecialchars($apellido2, ENT_QUOTES, 'UTF-8');
+$correoHtml = htmlspecialchars($correo, ENT_QUOTES, 'UTF-8');
+$añoHtml = htmlspecialchars($año, ENT_QUOTES, 'UTF-8');
+$telefonoHtml = htmlspecialchars($telefono, ENT_QUOTES, 'UTF-8');
 
 
 ?>
