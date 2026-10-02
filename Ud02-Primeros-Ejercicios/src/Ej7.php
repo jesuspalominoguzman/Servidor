@@ -7,7 +7,7 @@
 </head>
 
 <header>
-    <h1>Ejercicio 07 - Bloque 7</h1>
+    <h1>Ejercicio 07 - Bloque 2</h1>
 </header>
 
 <body>
