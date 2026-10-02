@@ -31,13 +31,13 @@ $puntos = 40;
 
     <section>
          <p>
-            Primera comprobación = <?php var_dump($puntos >40 && $puntos <50) ?>
+            Primera comprobación ¿El saldo está entre 40 y 50? = <?php var_dump($puntos >40 && $puntos <50) ?>
         </p>
     </section>
 
     <section>
          <p>
-            Segunda comprobación = <?php var_dump($puntos <30 || $puntos >45) ?>
+            Segunda comprobación ¿El saldo es menor que 30 o mayor que 45? = <?php var_dump($puntos <30 || $puntos >45) ?>
         </p>
     </section>
 
