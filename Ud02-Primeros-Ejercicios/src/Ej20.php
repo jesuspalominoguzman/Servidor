@@ -30,7 +30,7 @@
         $base = $_GET['base'] ?? '';
         $exponente = $_GET['exponente'] ?? '';
 
-        if (is_int($base) && is_int($exponente) && $exponente > 0  ) {
+        if (is_numeric($base) && is_numeric($exponente) && $exponente > 0  ) {
             
         $total = 0;
 
