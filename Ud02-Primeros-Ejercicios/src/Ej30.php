@@ -1,6 +1,6 @@
 <?php
 
-    function aplicarDescuento(float $precio, float $porcentaje): float {
+    function aplicarDescuento(float $precio, float $porcentaje = 10): float {
 
         $descuento = ($precio * $porcentaje) / 100;
 
@@ -20,7 +20,7 @@
 
 
     <header>
-        <h1>Ejercicio 20 - Bloque 6</h1>
+        <h1>Ejercicio 30 - Bloque 6</h1>
     </header>
 
 
@@ -43,8 +43,8 @@
         </tr>
         <tr>
             <td>100</td>
-            <td>25%</td>
-            <td><?php echo aplicarDescuento(100, 25); ?></td>
+            <td>10%</td>
+            <td><?php echo aplicarDescuento(100, 10); ?></td>
         </tr>
     </table>
     
