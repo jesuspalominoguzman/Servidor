@@ -13,15 +13,33 @@
 
     <?php
         
-        $numeros= [];
-        $letras = [];
+        $contadores = ['A' => 0, 'B' => 0];
+        $letras= [];
+
 
         for ($i = 0; $i < 50; $i++) {
-            $numeros[] = rand(0, 1);
+            $numero = rand(0, 1);
 
+            if ($numero == 0) {
+                $letras[] = 'A';
+            } else {
+                $letras[] = 'B';
+            }
+
+        }
+
+        foreach ($letras as $letra) {
+            $contadores[$letra]++;
         }
 
     ?>
     
+    <div>
+        <h3>Las letras A y b aparecen: 
+            <?php print_r($contadores); echo "cuya suma es " . $contadores['A'] + $contadores['B']; ?>
+        </h3>
+    </div>
+
+
 </body>
 </html>
