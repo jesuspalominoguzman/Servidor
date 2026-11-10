@@ -1,51 +1,47 @@
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/Figura.php';
+require_once __DIR__ . '/Rectangulo.php';
+require_once __DIR__ . '/Circulo.php';
+
+function obtenerArea(Figura $figura): float
+{
+    return $figura->calcularArea();
+}
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 8 PHP</title>
+    <title>Ejercicio 18 – Figuras abstractas</title>
 </head>
 <body>
-    <header>
-        <h1>Ejercicio 8 - Bloque 2</h1>
-    </header>
+<h1>Ejercicio 18 – Clase abstracta Figura</h1>
 
-    <?php
+<?php
+$rectangulo = new Rectangulo(5.0, 3.0);
+$circulo    = new Circulo(2.0);
 
-    require_once __DIR__ . '/Producto.php';
+$figuras = [$rectangulo, $circulo];
+$nombres = ['Área del rectángulo', 'Área del círculo'];
 
-    $producto1 = new Producto('Teclado', 25);
-    
-    ?>
+$sumaAreas = 0.0;
+foreach ($figuras as $i => $figura) {
+    $area = obtenerArea($figura);
+    $sumaAreas += $area;
+    echo '<p>' . $nombres[$i] . ': ' . number_format($area, 2, ',', '.') . '</p>';
+}
 
-    <div>
-        <h2>Primera Operación</h2>
-        <p>Saldo: <?php echo $cuenta1->getSaldo(); ?></p>
-    </div>
+echo '<p>Suma de áreas: ' . number_format($sumaAreas, 2, ',', '.') . '</p>';
 
-    <div>
-        <h2>Segunda Operación</h2>
-
-        <p>Se acepta? <?php echo $cuenta1->ingresar(50); ?></p>
-
-        <p>Saldo: <?php echo $cuenta1->getSaldo(); ?></p>
-
-    </div>
-
-    <div>
-        <h2>Tercera Operación</h2>
-        <?php $cuenta1->retirar(100); ?>
-        <p>Saldo: <?php echo $cuenta1->getSaldo(); ?></p>
-    </div>  
-
-
-
-
-
-    
-
-
-
+/*
+ * RESPUESTAS:
+ * - No podemos hacer new Figura() porque es abstracta; existe para definir
+ *   un tipo común, no para instanciarse directamente.
+ * - Si una hija concreta no implementa calcularArea(), PHP la trataría como abstracta
+ *   también y no podría instanciarse.
+ */
+?>
 </body>
 </html>
-

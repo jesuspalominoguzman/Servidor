@@ -1,51 +1,57 @@
+<?php
+declare(strict_types=1);
+
+require_once __DIR__ . '/Producto.php';
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ejercicio 8 PHP</title>
+    <title>Ejercicio 8 – Producto con precio controlado</title>
 </head>
 <body>
-    <header>
-        <h1>Ejercicio 8 - Bloque 2</h1>
-    </header>
+<h1>Ejercicio 8 – Producto con precio controlado</h1>
 
-    <?php
+<?php
+$producto = new Producto('Teclado', 25.0);
 
-    require_once __DIR__ . '/Producto.php';
+echo '<h2>Producto: ' . htmlspecialchars($producto->getNombre(), ENT_QUOTES, 'UTF-8') . '</h2>';
 
-    $producto1 = new Producto('Teclado', 25);
-    
-    ?>
+// 1. Calcular 3 unidades → 75,00 €
+echo '<p>3 unidades a ' . number_format($producto->getPrecio(), 2, ',', '.') . ' €: '
+    . number_format($producto->calcularImporte(3), 2, ',', '.') . ' €</p>';
 
-    <div>
-        <h2>Primera Operación</h2>
-        <p>Saldo: <?php echo $cuenta1->getSaldo(); ?></p>
-    </div>
+// 2. Cambiar precio a 30.0 → aceptado, 3 unidades = 90,00 €
+$ok = $producto->setPrecio(30.0);
+echo '<p>Cambio de precio a 30,00 €: ' . ($ok ? 'Aceptado' : 'Rechazado') . '</p>';
+echo '<p>3 unidades ahora: ' . number_format($producto->calcularImporte(3), 2, ',', '.') . ' €</p>';
 
-    <div>
-        <h2>Segunda Operación</h2>
+// 3. Intentar asignar -5.0 → rechazado, precio sigue en 30.0
+$ok = $producto->setPrecio(-5.0);
+echo '<p>Cambio de precio a -5,00 €: ' . ($ok ? 'Aceptado' : 'Rechazado')
+    . ' (precio actual: ' . number_format($producto->getPrecio(), 2, ',', '.') . ' €)</p>';
 
-        <p>Se acepta? <?php echo $cuenta1->ingresar(50); ?></p>
+// 4. Cambiar precio a 0.0 → aceptado, 3 unidades = 0,00 €
+$ok = $producto->setPrecio(0.0);
+echo '<p>Cambio de precio a 0,00 €: ' . ($ok ? 'Aceptado' : 'Rechazado') . '</p>';
+echo '<p>3 unidades a precio 0: ' . number_format($producto->calcularImporte(3), 2, ',', '.') . ' €</p>';
 
-        <p>Saldo: <?php echo $cuenta1->getSaldo(); ?></p>
+// 5. Calcular 0 unidades → excepción
+echo '<h2>Prueba: 0 unidades (inválido)</h2>';
+try {
+    $producto->calcularImporte(0);
+} catch (InvalidArgumentException $e) {
+    echo '<p>' . htmlspecialchars($e->getMessage(), ENT_QUOTES, 'UTF-8') . '</p>';
+}
 
-    </div>
-
-    <div>
-        <h2>Tercera Operación</h2>
-        <?php $cuenta1->retirar(100); ?>
-        <p>Saldo: <?php echo $cuenta1->getSaldo(); ?></p>
-    </div>  
-
-
-
-
-
-    
-
-
-
+/*
+ * COMENTARIO:
+ * Tener un setter no obliga a aceptar cualquier valor porque setPrecio() incluye
+ * su propia validación: rechaza valores negativos devolviendo false y sin modificar
+ * el estado del objeto.
+ * setPrecio() devuelve bool para indicar si la operación tuvo éxito.
+ * getPrecio() devuelve float porque su objetivo es proporcionar el valor actual.
+ */
+?>
 </body>
 </html>
-

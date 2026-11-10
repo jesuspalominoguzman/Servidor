@@ -1,30 +1,52 @@
 <?php
 declare(strict_types=1);
 
-class Contador
-{
-    public int $valor = 0;
+require_once __DIR__ . '/Entrada.php';
+?>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 5 – Reparar y comprobar una clase</title>
+</head>
+<body>
+<h1>Ejercicio 5 – Reparar y comprobar una clase</h1>
 
-    public function incrementar(): void
-    {
-        $this->valor++;
-    }
-}
+<?php
+/*
+ * ERRORES DEL PROGRAMA ORIGINAL:
+ *
+ * Error 1: return $precio * $cantidad;
+ *   Dentro de un método, las propiedades deben accederse con $this->.
+ *   Corrección: return $this->precio * $cantidad;
+ *
+ * Error 2: $entrada = Entrada();
+ *   Para instanciar un objeto se necesita la palabra clave new.
+ *   Corrección: $entrada = new Entrada();
+ *
+ * Error 3: echo $entrada['evento'];
+ *   Los objetos no se acceden con corchetes (eso es para arrays).
+ *   Corrección: echo $entrada->evento;
+ *
+ * PREGUNTA: ¿Estos cálculos modifican el precio guardado en el objeto?
+ *   No. calcularTotal() solo multiplica $this->precio por la cantidad
+ *   y devuelve el resultado, sin modificar la propiedad $precio.
+ */
 
-$a = new Contador();
-$b = new Contador();
-$c = $a;
+$entrada = new Entrada();
 
-$a->incrementar();
-$c->incrementar();
-$b->incrementar();
+// Mostrar el evento
+echo '<p>Evento: ' . htmlspecialchars($entrada->evento, ENT_QUOTES, 'UTF-8') . '</p>';
 
-echo $a->valor . '<br>';
-echo $b->valor . '<br>';
-echo $c->valor . '<br>';
+// Tres entradas → 36,00 €
+echo '<p>3 entradas: ' . number_format($entrada->calcularTotal(3), 2, ',', '.') . ' €</p>';
 
-$c = new Contador();
-echo $c->valor;
+// Una entrada → 12,00 €
+echo '<p>1 entrada: ' . number_format($entrada->calcularTotal(1), 2, ',', '.') . ' €</p>';
 
-
-//Comentario sin ejecutar: 2 1 2 0 
+// Cinco entradas → 60,00 €
+echo '<p>5 entradas: ' . number_format($entrada->calcularTotal(5), 2, ',', '.') . ' €</p>';
+?>
+</body>
+</html>
